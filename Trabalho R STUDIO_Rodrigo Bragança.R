@@ -38,24 +38,20 @@ summary(Base_dados)
 
 
 # Pré tratamento da base de dados - Tirando a 1º coluna "User.id" e colocando ela como rótulo de linha #
-
 Dados_semChar = Base_dados[,-1]
 row.names(Dados_semChar) = Base_dados[,1]
 
 
 # função descr #
-
 descr(Dados_semChar)
 
 ## ggplot & matriz de correlação ##
-
 pairs(Dados_semChar)
 Correlação_matriz = cor(Dados_semChar)
 
 
 
 ## Histograma - Utilizei o número de breaks recomendados pelo R studio ##
-
 hist(Dados_semChar$Religious) ## 9 brakes ##
 hist(Dados_semChar$Nature) ## 6 breaks ##
 hist(Dados_semChar$Theatre) ## 9 breaks ##
@@ -67,7 +63,6 @@ hist(Dados_semChar$Sports) ## 12 breaks ##
 
 ## Histograma - Qty de bins com base na "regra da raiz quadrada do número de observações" ##
 ### Como todas as variáveis possuem a mesma quantidade de linhas, a regra abaixo serve para todas as variáveis ###
-
 Num_obs_Reli = length(Dados_semChar$Religious)
 Num_bins_reli = ceiling(sqrt(Num_obs)) ## bins = 16 ##
 hist(Dados_semChar$Religious, breaks = 16)
@@ -75,7 +70,6 @@ hist(Dados_semChar$Religious, breaks = 16)
 
 
 ##  "Crie um gráfico Q-Q para cada variável de sua base de dados. (use as funções presentes no pacote ggpubr;" ##
-
 install.packages("ggpubr")
 library(ggpubr)
 
@@ -100,14 +94,12 @@ print(QQ_plots_spo)
 
 
 ## Completudo das minhas variáveis ##
-
 Completude = colMeans(!is.na(Dados_semChar)) * 100
 print(Completude)
 
 
 
 ## "Realize uma operação de imputação de dados usando o pacote MICE" ##
-
 install.packages("mice")
 library(mice)
 
@@ -115,7 +107,6 @@ Dados_imputados = mice(Dados_semChar, m = 5, method = 'pmm', seed = 333)
 
 
 ## Shiny dashboard ##
-
 install.packages("shinydashboard")
 library(shiny)
 library(shinydashboard)
