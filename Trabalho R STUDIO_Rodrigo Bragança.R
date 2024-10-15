@@ -60,13 +60,11 @@ hist(Dados_semChar$Picnic) ## 9 breaks ##
 hist(Dados_semChar$Sports) ## 12 breaks ##
 
 
-
 ## Histograma - Qty de bins com base na "regra da raiz quadrada do número de observações" ##
 ### Como todas as variáveis possuem a mesma quantidade de linhas, a regra abaixo serve para todas as variáveis ###
 Num_obs_Reli = length(Dados_semChar$Religious)
 Num_bins_reli = ceiling(sqrt(Num_obs)) ## bins = 16 ##
 hist(Dados_semChar$Religious, breaks = 16)
-
 
 
 ##  "Crie um gráfico Q-Q para cada variável de sua base de dados. (use as funções presentes no pacote ggpubr;" ##
